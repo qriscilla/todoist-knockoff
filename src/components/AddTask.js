@@ -3,7 +3,6 @@ import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { useSelectedProjectValue } from '../context';
-import { render } from '@testing-library/react';
 import { ProjectOverlay } from './ProjectOverlay';
 import { TaskDate } from './TaskDate';
 
@@ -54,7 +53,6 @@ export const AddTask = ({
                     setShowProjectOverlay(false);
                 })
         );
-
     };
 
     return(
@@ -115,7 +113,12 @@ export const AddTask = ({
                             type='button'
                             className='add-task__submit'
                             data-testid='add-task'
-                            onClick={() => addTask()}
+                            // onClick={() => addTask()}
+                            onClick={() => 
+                                showQuickAddTask
+                                ? addTask() && setShowQuickAddTask(false)
+                                : addTask()
+                            }
                         >
                             Add Task
                         </button>

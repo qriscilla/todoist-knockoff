@@ -1,15 +1,16 @@
 import React from 'react';
 import { firebase } from '../firebase';
 
-export const Checkbox = ({ id }) => {
+export const Checkbox = ({ id, taskDesc }) => {
+
     const archiveTask = () => {
         firebase
-            .firestore()
-            .collection('task')
-            .doc(id)
-            .update({
-                archived: true,
-            });
+          .firestore()
+          .collection('tasks')
+          .doc(id)
+          .update({
+            archived: true,
+          });
     };
 
     return (
@@ -17,6 +18,9 @@ export const Checkbox = ({ id }) => {
             className='checkbox-holder' 
             data-testid='checkbox-action'
             onClick={() => archiveTask()}
+            onKeyDown={() => archiveTask()}
+            role='button'
+            tabIndex={0}
         >
             <span className='checkbox' />
         </div>
