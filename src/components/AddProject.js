@@ -47,6 +47,7 @@ export const AddProject = ({shouldShow = false}) => {
                                 Add Project
                             </button>
                             <span
+                                aria-label='Cancel adding project'
                                 data-testid='hide-project-overlay'
                                 className='add-project__cancel'
                                 onClick={() => setShow(false)}
@@ -60,6 +61,7 @@ export const AddProject = ({shouldShow = false}) => {
                     )}
                     <span className='add-project__plus'>+</span>
                     <span 
+                        aria-label='Add project'
                         className='add-project__text'
                         data-testid='add-project-action'
                         onClick={() => setShow(!show)}
