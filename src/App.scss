@@ -264,9 +264,6 @@
     }
 
     li {
-        padding-left: 10px;
-        padding-right: 15px;
-
         &:hover .sidebar__project-delete {
             display: flex;
         }
@@ -278,6 +275,9 @@
         font-size: 15px;
 
         div:nth-child(1) {
+          padding: 5px 0;
+          padding-left: 10px;
+          padding-right: 15px;
           width: 100%;
           display: flex;
           align-items: center;
@@ -366,22 +366,33 @@
 
     &__generic {
         li {
-            padding: 10px 0 10px 10px;
             list-style-type: none;
             color: #333;
             display: flex;
+            cursor: pointer;
             line-height: 1.50;
             font-size: 15px;
+            padding-left: 0;
+            padding-right: 0;
 
-            span:first-of-type {
+            div:nth-child(1) {
+              display: flex;
+              padding: 10px 0 10px 10px;
+              width: 100%;
+
+              span:first-of-type {
                 margin-right: 10px;
+                display: flex;
+                align-items: center;
       
                 svg {
                   width: 18px;
                   height: 18px;
                   color: #555;
                 }
+              }
             }
+
             &.active, &:hover {
                 font-weight: bold;
                 background-color: white;
@@ -597,12 +608,20 @@
 
   &__list li {
     @include task-item();
+    padding: 0px;
 
-    span:first-of-type {
-      margin-right: 10px;
+    div:nth-child(1) {
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
 
-      svg {
-        fill: grey;
+      span:first-of-type {
+        margin-right: 10px;
+  
+        svg {
+          fill: grey;
+        }
       }
     }
   }
@@ -615,6 +634,12 @@
 
   &__list li {
     @include task-item();
+    padding: 0;
+
+    div:nth-child(1) {
+      width: 100%;
+      padding: 10px;
+    }
   }
 }
 

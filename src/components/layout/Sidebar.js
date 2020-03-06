@@ -21,39 +21,75 @@ export const Sidebar = () => {
             <li 
                 data-testid='inbox' 
                 className={active === 'inbox' ? 'active' : undefined}
-                onClick={() => {
-                    setActive('inbox');
-                    setSelectedProject('INBOX');
-                }}
             >
-                <span><FaInbox /></span>
-                <span>Inbox</span>
+                <div
+                    tabIndex={0}
+                    role='button'
+                    onClick={() => {
+                        setActive('inbox');
+                        setSelectedProject('INBOX');
+                    }}
+                    onKeyDown={() => {
+                        setActive('inbox');
+                        setSelectedProject('INBOX');
+                    }}
+                >
+                    <span><FaInbox /></span>
+                    <span>Inbox</span>
+                </div>
+
             </li>
             <li 
                 data-testid='today' 
                 className={active === 'today' ? 'active' : undefined}
-                onClick={() => {
-                    setActive('today');
-                    setSelectedProject('TODAY');
-                }}
             >
-                <span><FaRegCalendar /></span>
-                <span>Today</span>
+                <div
+                    onClick={() => {
+                        setActive('today');
+                        setSelectedProject('TODAY');
+                    }}
+                    onKeyDown={() => {
+                        setActive('today');
+                        setSelectedProject('TODAY');
+                    }}
+                    tabIndex={0}
+                    role='button'
+                >
+                    <span><FaRegCalendar /></span>
+                    <span>Today</span>
+                </div>
+
             </li>
             <li 
                 data-testid='next_7' 
                 className={active === 'next_7' ? 'active' : undefined}
+            >
+            <div
                 onClick={() => {
                     setActive('next_7');
                     setSelectedProject('NEXT_7');
                 }}
+                onKeyDown={() => {
+                    setActive('next_7');
+                    setSelectedProject('NEXT_7');
+                }}
+                tabIndex={0}
+                role='button'
             >
                 <span><FaRegCalendarAlt /></span>
                 <span>Next 7 Days</span>
+            </div>
+
             </li>
         </ul>
 
-        <div className='sidebar__middle' onClick={() => setShowProjects(!showProjects)}>
+        <div 
+            className='sidebar__middle' 
+            onClick={() => setShowProjects(!showProjects)}
+            onKeyDown={() => setShowProjects(!showProjects)}
+            tabIndex={0}
+            role='button'
+        >
             <span><FaChevronDown className={!showProjects ? 'hidden-projects' : undefined} /></span>
             <h2>Projects</h2>
         </div>
