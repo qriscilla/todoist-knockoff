@@ -266,6 +266,8 @@
     li {
         &:hover .sidebar__project-delete {
             display: flex;
+            margin-left: 5px;
+            margin-bottom: -20px;
         }
     }
 
@@ -403,11 +405,11 @@
 
 .project-delete-modal {
   position: relative;
+  width: 200px;
   
   &__inner {
     @include box-overlay();
     z-index: 99;
-    width: 200px;
     padding: 10px;
     top: 10px;
     right: 0;
@@ -422,8 +424,9 @@
     }
 
     button {
-      @include btn("50px")
+      @include btn("50px");
     }
+
     span {
       @include cancel();
       font-weight: normal;
@@ -498,6 +501,153 @@
     }
   }
 }
+
+// Delete Project
+.delete-header {
+  font-size: 13px;
+  display: inline-block;
+}
+
+.delete-project {
+  &__overlay {
+   background: rgba(102,102,102,0.5);
+   position: absolute;
+   margin: auto;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 2000;
+   -webkit-transition: opacity 0.2s ease-in;
+   transition: opacity 0.2s ease-in;
+   height: calc(100vh);
+ 
+    .delete-project__main {
+      width: 200px;
+      overflow: visible;
+      margin-bottom: 20px;
+      margin-top: 55px;
+      border-radius: 5px;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      // padding: 20px 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    button {
+      background-color: #dd4b39;
+      // border: 2px solid gray;
+      border-radius: 5px;
+      color: white;
+      margin-right: 5px;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 13px !important;
+      line-height: 17px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      text-decoration: none !important;
+      text-align: center;
+      cursor: pointer;    }
+
+    span {
+      background-color: white;
+      border: 2px solid gray;
+      border-radius: 5px;
+      color: gray;
+      margin-right: 5px;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 13px !important;
+      line-height: 17px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-left: 4px;
+      padding-right: 4px;
+      // padding: 6px 12px 6px 12px;
+      // position: relative;
+      // display: inline-block;
+      // white-space: nowrap;
+      // border-radius: 3px !important;
+      text-decoration: none !important;
+      text-align: center;
+      cursor: pointer;
+    }
+ 
+    // .delete-project__cancel-x {
+    //   cursor: pointer;
+    //   color: gray;
+    //   float: right;
+    //   font-weight: bold;
+    //   font-size: 12px;
+    //   margin-top: 10px;
+    // }
+  }
+ 
+  &__main {
+    position: relative;
+  }
+ 
+  &__project, &__date {
+    cursor: pointer;
+    float: right;
+    color: gray;
+    margin: 20px 10px;
+  }
+ 
+  &__project {
+    margin-right: 0;
+  }
+ 
+  &__content {
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: white !important;
+    border-radius: 3px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+ 
+  &__cancel, &__submit {
+    @include no-select;
+  }
+ 
+  &__cancel {
+    @include cancel();
+  }
+ 
+  &__submit {
+    @include btn("90px");
+  }
+ }
+ 
+ .delete-project__shallow, .delete-project {
+   @include no-select;
+   cursor: pointer;
+   margin-bottom: 20px;
+ }
+ 
+ .delete-project__plus, .delete-project__plus {
+   color: #dd4b39;
+   font-size: 18px;
+ }
+ 
+ .delete-project__text, .delete-project__text {
+   display: inline-block;
+   color: #545454;
+   font-size: 14px;
+   margin-left: 15px;
+ }
 
 // Add Task
 .add-task {
