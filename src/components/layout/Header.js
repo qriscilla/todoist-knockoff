@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { FaPizzaSlice } from 'react-icons/fa';
 import { AddTask } from '../AddTask';
+import Logo from '../../Logo.png';
 
 export const Header = ({darkMode, setDarkMode}) => {
     const [shouldShowMain, setShouldShowMain] = useState(false);
@@ -10,7 +11,7 @@ export const Header = ({darkMode, setDarkMode}) => {
         <header className='header' data-testid='header'>
             <nav>
                 <div className='logo'>
-                    <img src='/images/logo.png' alt='Todoist' />
+                    <img src={Logo} alt='Todoist' />
                 </div>
                 <div className='settings'>
                     <ul>
